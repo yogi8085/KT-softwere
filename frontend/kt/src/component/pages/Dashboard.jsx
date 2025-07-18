@@ -1,21 +1,16 @@
-// src/pages/Dashboard.jsx
+// src/component/pages/Dashboard.jsx
 import React, { useState } from "react";
-import BuyChips from "./BuyChips";
-import SellChips from "./SellChips";
-import StoreChips from "./StoreChips";
+import { useNavigate } from "react-router-dom";
 import Dashboard2 from "./Deshboard2";
 
 const Dashboard = () => {
-  const [activeForm, setActiveForm] = useState("");
+  const navigate = useNavigate();
+
   const [showDashboard2, setShowDashboard2] = useState(false);
   const [passwordPromptVisible, setPasswordPromptVisible] = useState(false);
   const [password, setPassword] = useState("");
 
   const correctPassword = "1234";
-
-  const toggleForm = (form) => {
-    setActiveForm(activeForm === form ? "" : form);
-  };
 
   const handleAdminPanelAccess = () => {
     setPasswordPromptVisible(true);
@@ -31,13 +26,12 @@ const Dashboard = () => {
     }
   };
 
-  // Show admin dashboard when password is correct
   if (showDashboard2) {
     return <Dashboard2 />;
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-blue-100 to-purple-200 p-4 sm:p-6 overflow-x-hidden">
+    <div className="min-h-screen bg-gradient-to-r from-blue-100 to-purple-200 p-4 sm:p-6 overflow-x-hidden pb-20">
       {/* Header */}
       <div className="flex flex-col items-center mb-8 text-center">
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 mt-4">
@@ -46,29 +40,29 @@ const Dashboard = () => {
         <p className="text-gray-600 text-base mt-1">Select an action below</p>
       </div>
 
-      {/* Action Buttons */}
+      {/* Buttons to navigate */}
       <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mb-6 items-center">
         <button
-          onClick={() => toggleForm("buy")}
-          className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-2xl shadow-lg w-11/12 sm:w-auto max-w-xs transition-all duration-300 text-lg font-semibold"
+          onClick={() => navigate("/buy")}
+          className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-2xl shadow-lg w-11/12 sm:w-auto max-w-xs text-lg font-semibold transition-all duration-300"
         >
           🛒 Buy Chips
         </button>
         <button
-          onClick={() => toggleForm("store")}
-          className="bg-purple-500 hover:bg-purple-600 text-white px-8 py-3 rounded-2xl shadow-lg w-11/12 sm:w-auto max-w-xs transition-all duration-300 text-lg font-semibold"
+          onClick={() => navigate("/store")}
+          className="bg-purple-500 hover:bg-purple-600 text-white px-8 py-3 rounded-2xl shadow-lg w-11/12 sm:w-auto max-w-xs text-lg font-semibold transition-all duration-300"
         >
           📦 Store Chips
         </button>
         <button
-          onClick={() => toggleForm("sell")}
-          className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-2xl shadow-lg w-11/12 sm:w-auto max-w-xs transition-all duration-300 text-lg font-semibold"
+          onClick={() => navigate("/sell")}
+          className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-2xl shadow-lg w-11/12 sm:w-auto max-w-xs text-lg font-semibold transition-all duration-300"
         >
           🏭 Sell Chips
         </button>
       </div>
 
-      {/* ✅ Stylish Admin Panel Button */}
+      {/* Admin Panel Access */}
       <div className="flex justify-center mt-4">
         <button
           onClick={handleAdminPanelAccess}
@@ -97,17 +91,32 @@ const Dashboard = () => {
         </div>
       )}
 
-      {/* Forms */}
-      {activeForm && (
-        <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-xl max-w-full sm:max-w-2xl mx-auto mt-6">
-          <h2 className="text-xl sm:text-2xl font-semibold mb-6 capitalize text-center text-gray-700">
-            {activeForm} Form
-          </h2>
-          {activeForm === "buy" && <BuyChips />}
-          {activeForm === "sell" && <SellChips />}
-          {activeForm === "store" && <StoreChips />}
-        </div>
-      )}
+      {/* Footer */}
+      <div className="fixed bottom-0 left-0 w-full bg-white border-t border-gray-300 shadow-inner flex justify-around py-2 z-50">
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="flex flex-col items-center text-gray-700 hover:text-blue-600 text-sm"
+        >
+          <span>🏠</span>
+          <span>Home</span>
+        </button>
+
+        <a
+          href="/about"
+          className="flex flex-col items-center text-gray-700 hover:text-blue-600 text-sm"
+        >
+          <span>ℹ️</span>
+          <span>About</span>
+        </a>
+
+        <a
+          href="/profile"
+          className="flex flex-col items-center text-gray-700 hover:text-blue-600 text-sm"
+        >
+          <span>👤</span>
+          <span>Profile</span>
+        </a>
+      </div>
     </div>
   );
 };
