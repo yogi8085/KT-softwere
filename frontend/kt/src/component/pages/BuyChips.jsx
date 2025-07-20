@@ -68,6 +68,49 @@ const BuyChips = () => {
             type="date"
             className="w-full border border-gray-300 rounded-xl px-4 py-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
           />
+          <input
+            type="text"
+            placeholder="Lot No."
+            className="w-full border border-gray-300 rounded-xl px-4 py-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+          />
+          <input
+            type="text"
+            placeholder="Cold Store Name"
+            className="w-full border border-gray-300 rounded-xl px-4 py-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+          />
+          <input
+            type="text"
+            placeholder="Warehouse Location"
+            className="w-full border border-gray-300 rounded-xl px-4 py-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+          />
+          <input
+            type="text"
+            placeholder="RST No."
+            className="w-full border border-gray-300 rounded-xl px-4 py-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+          />
+          <input
+            type="text"
+            placeholder="FPR No."
+            className="w-full border border-gray-300 rounded-xl px-4 py-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+          />
+          <input
+            type="text"
+            placeholder="Payment Terms"
+            className="w-full border border-gray-300 rounded-xl px-4 py-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+          />
+          <input
+            type="date"
+            placeholder="Due Date"
+            className="w-full border border-gray-300 rounded-xl px-4 py-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+          />
+          <select
+            className="w-full border border-gray-300 rounded-xl px-4 py-2 bg-gray-50 text-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+          >
+            <option value="">Payment Status</option>
+            <option value="Paid">Paid</option>
+            <option value="Unpaid">Unpaid</option>
+            <option value="Partially Paid">Partially Paid</option>
+          </select>
 
           {/* Total Price */}
           <div className="text-base sm:text-lg font-semibold text-green-700 text-center sm:text-right">
