@@ -64,6 +64,29 @@ const SellChips = () => {
             className="w-full border border-gray-300 rounded-xl px-4 py-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
           />
 
+          {/* 🔄 Additional Fields from PDF */}
+          <input
+            type="text"
+            placeholder="Warehouse Location"
+            className="w-full border border-gray-300 rounded-xl px-4 py-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+          />
+          <input
+            type="text"
+            placeholder="Dispatch Reference No."
+            className="w-full border border-gray-300 rounded-xl px-4 py-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+          />
+          <input
+            type="text"
+            placeholder="Delivery Address"
+            className="w-full border border-gray-300 rounded-xl px-4 py-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+          />
+          <select className="w-full border border-gray-300 rounded-xl px-4 py-2 bg-gray-50 text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition">
+            <option value="">Payment Status</option>
+            <option value="Paid">Paid</option>
+            <option value="Unpaid">Unpaid</option>
+            <option value="Partially Paid">Partially Paid</option>
+          </select>
+
           {/* Total */}
           <div className="text-base sm:text-lg font-semibold text-blue-700 text-center sm:text-right">
             Total Price: ₹ {total.toFixed(2)}

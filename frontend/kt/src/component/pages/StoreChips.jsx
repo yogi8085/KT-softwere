@@ -44,6 +44,28 @@ const StoreChips = () => {
             className="w-full border border-gray-300 rounded-xl px-4 py-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-purple-400 transition"
           />
 
+          {/* 🔄 Additional fields from PDF */}
+          <input
+            type="text"
+            placeholder="Product Variety / Grade"
+            className="w-full border border-gray-300 rounded-xl px-4 py-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-purple-400 transition"
+          />
+          <input
+            type="number"
+            placeholder="Quantity Stored (kg)"
+            className="w-full border border-gray-300 rounded-xl px-4 py-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-purple-400 transition"
+          />
+          <input
+            type="date"
+            placeholder="Storage Date"
+            className="w-full border border-gray-300 rounded-xl px-4 py-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-purple-400 transition"
+          />
+          <input
+            type="text"
+            placeholder="Batch No. / Reference"
+            className="w-full border border-gray-300 rounded-xl px-4 py-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-purple-400 transition"
+          />
+
           {/* Submit Button */}
           <button
             type="submit"

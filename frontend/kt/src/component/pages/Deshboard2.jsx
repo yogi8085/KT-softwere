@@ -25,12 +25,34 @@ ChartJS.register(
 );
 
 const Dashboard2 = () => {
+  const ratePerKg = 50; // ₹ per kg
+  const unit = "quintal"; // Change to "ton" if needed
+
   const summary = {
-    purchases: 12500,
-    sales: 18400,
+    purchases: 712500, // ₹
+    sales: 618400, // ₹
     lots: 8,
-    pending: 3200,
+    pending: 3200, // ₹
   };
+
+  // ₹ to kg conversion
+  const purchaseKg = summary.purchases / ratePerKg;
+  const salesKg = summary.sales / ratePerKg;
+
+  // Unit conversion
+  let purchaseWeight = purchaseKg;
+  let salesWeight = salesKg;
+  let unitLabel = "kg";
+
+  if (unit === "quintal") {
+    purchaseWeight = purchaseKg / 100;
+    salesWeight = salesKg / 100;
+    unitLabel = "Quintal";
+  } else if (unit === "ton") {
+    purchaseWeight = purchaseKg / 1000;
+    salesWeight = salesKg / 1000;
+    unitLabel = "Ton";
+  }
 
   const lineData = {
     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
@@ -82,13 +104,13 @@ const Dashboard2 = () => {
         {/* Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
           <Card
-            title="Total Purchases"
-            value={`₹${summary.purchases}`}
+            title={`Total Purchase (${unitLabel})`}
+            value={`${purchaseWeight.toFixed(2)} ${unitLabel}`}
             color="text-green-600"
           />
           <Card
-            title="Total Sales"
-            value={`₹${summary.sales}`}
+            title={`Total Sell (${unitLabel})`}
+            value={`${salesWeight.toFixed(2)} ${unitLabel}`}
             color="text-blue-600"
           />
           <Card
